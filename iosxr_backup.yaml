@@ -1,0 +1,26 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+
+    - add_host:
+        hostname: 192.168.250.14
+        groups: BACKUP
+
+- name: Create Backup to Cisco IOS-XR Router
+  hosts: IOSXR,BACKUP
+  gather_facts: no
+  connection: local    
+  tasks:
+
+    - import_role:
+        name: ../default/roles/cyberark_connection
+
+
+    - include_role:
+        name: iosxr_backup
+      when: "'IOSXR' in group_names"
+      
+
