@@ -1,0 +1,13 @@
+---
+
+- name: Collecting backup on Huawei CX600
+  ce_command:
+    commands: display current-configuration
+  register: backup_config
+  when: ansible_network_os == 'ce'
+  ignore_errors: true
+
+- set_fact:
+    CONTEUDO: "{{ backup_config.stdout_lines[0] |join('\n') }}"
+  ignore_errors: true  
+  

@@ -1,0 +1,9 @@
+---
+# tasks file for huawei_backup
+
+- name: --- Collect Huawei informations ---
+  include_tasks: backup.yml
+
+- name: --- Save Backup ---
+  include_tasks: ../../../../default/tasks/save.yml
+

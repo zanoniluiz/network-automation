@@ -1,0 +1,6 @@
+---
+# vars file for huawei_backup
+PROJECTDIR: "/dados/ROUTER"
+EQUIPAMENTO: CX600
+DATE: "{{ lookup('pipe', 'date +%Y%m%d') }}"
+TYPE: BACKUP

@@ -1,0 +1,12 @@
+---
+
+- hosts: router-huawei
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - include_role:
+        name: huawei_backup
+      when: "'CX600' in group_names"
+
+
+      
